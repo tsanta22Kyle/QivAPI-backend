@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import qivapi.backend.model.ApiHealthResponse;
 import qivapi.backend.service.ApiCheckService;
 
 import java.util.Map;
@@ -16,7 +17,7 @@ public class ApiCheckController {
     private final ApiCheckService apiCheckService;
 
     @PostMapping("check")
-    public ResponseEntity<String> checkAPI(@RequestBody String apiUrl){
+    public ResponseEntity<ApiHealthResponse> checkAPI(@RequestBody String apiUrl){
         return apiCheckService.checkAPI(apiUrl);
     }
     
